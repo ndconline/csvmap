@@ -1,3 +1,7 @@
+This is from https://github.com/perrygeo/leaflet-simple-csv
+I have just copied the files here as I wanted to play with them a little. This is not a stable release you should go to https://github.com/perrygeo/leaflet-simple-csv if you would like the real copy.
+
+
 Simple Leaflet map template for putting points on a map.
 
 <img src="https://raw.github.com/perrygeo/leaflet-simple-csv/master/img/screenshot1.png" alt="Leaflet" />
