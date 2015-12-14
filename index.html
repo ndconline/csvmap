@@ -1,86 +1,70 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Csvmap by ndconline</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Csvmap</h1>
-        <p>testing perrygeo</p>
+    <section class="page-header">
+      <h1 class="project-name">Csvmap</h1>
+      <h2 class="project-tagline">testing perrygeo</h2>
+      <a href="https://github.com/ndconline/csvmap" class="btn">View on GitHub</a>
+      <a href="https://github.com/ndconline/csvmap/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ndconline/csvmap/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/ndconline/csvmap">View the Project on GitHub <small>ndconline/csvmap</small></a></p>
+    <section class="main-content">
+      <p>This is from <a href="https://github.com/perrygeo/leaflet-simple-csv">https://github.com/perrygeo/leaflet-simple-csv</a>
+I have just copied the files here as I wanted to play with them a little. This is not a stable release you should go to <a href="https://github.com/perrygeo/leaflet-simple-csv">https://github.com/perrygeo/leaflet-simple-csv</a> if you would like the real copy.</p>
 
+<p>Simple Leaflet map template for putting points on a map.</p>
 
-        <ul>
-          <li><a href="https://github.com/ndconline/csvmap/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/ndconline/csvmap/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/ndconline/csvmap">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p>&lt;!DOCTYPE html&gt;
+<p><img src="https://raw.github.com/perrygeo/leaflet-simple-csv/master/img/screenshot1.png" alt="Leaflet"></p>
 
-</p>
-    Leaflet GeoCsv Filter
-    
-    
+<h3>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h3>
 
-<pre><code>&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" /&gt;
-&lt;link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"&gt;
-&lt;!--[if lte IE 8]&gt;&lt;link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" /&gt;&lt;![endif]--&gt;
-&lt;link rel="stylesheet" href="css/MarkerCluster.css" /&gt;
-&lt;link rel="stylesheet" href="css/MarkerCluster.Default.css" /&gt;
-&lt;!--[if lte IE 8]&gt;&lt;link rel="stylesheet" href="../dist/MarkerCluster.Default.ie.css" /&gt;&lt;![endif]--&gt;
-&lt;link rel="stylesheet" href="css/leaflet.label.css" /&gt;
-&lt;link rel="stylesheet" href="css/screen.css" /&gt;
-</code></pre>
+<ul>
+<li>Data is in tabular delimited-text (csv, etc.) with two required columns: <code>lat</code> and <code>lng</code>
+</li>
+<li>Points are plotted on full-screen <a href="https://github.com/Leaflet/Leaflet">Leaflet</a> map</li>
+<li>Point markers are clustered dynamically based on zoom level.</li>
+<li>Clicking on a point cluster will zoom into the extent of the underlying features.</li>
+<li>Hovering on the point will display the name. </li>
+<li>Clicking will display a popup with columns/properties displayed as an html table.</li>
+<li>Full text filtering with typeahead</li>
+<li>Completely client-side javascript with all dependencies included or linked via CDN</li>
+</ul>
 
-<p>
-</p>
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<pre><code>&lt;div id="map"&gt;&lt;/div&gt;
-&lt;div id="filter-container"&gt;
-    &lt;form class="form-search" class="noSelect" onSubmit="addCsvMarkers(); return false;"&gt;
-        &lt;a href="#" id="clear" class="leaflet-popup-close-button"&gt;&amp;#215;&lt;/a&gt;
-        &lt;div class="input-append"&gt;
-            &lt;input type="text" id="filter-string" class="input-medium search-query search-box" autocomplete="off"&gt;
-            &lt;button type="submit" class="btn search-box"&gt;&lt;i class="icon-search"&gt;&lt;/i&gt;&lt;/button&gt;
-            &lt;!-- &lt;span class="add-on"&gt;
-            &lt;/span&gt; --&gt;
-        &lt;/div&gt;
-    &lt;/form&gt;
-    &lt;div id="search-results" class="leaflet-control-attribution leaflet-control pull-right"&gt;&lt;/div&gt;
-&lt;/div&gt;
+<p>Download, add your own data csv, copy the <code>config.js.template</code> to <code>config.js</code>, edit it according to your needs, then load index.html in a browser.</p>
 
-&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" &gt;&lt;/script&gt;
-&lt;script src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"&gt;&lt;/script&gt;
-&lt;script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"&gt;&lt;/script&gt;
-&lt;script src="js/leaflet.markercluster.js"&gt;&lt;/script&gt;
-&lt;script src="js/leaflet.geocsv.js"&gt;&lt;/script&gt;
-&lt;script src="js/leaflet.label.js"&gt;&lt;/script&gt;
-&lt;script src="config.js"&gt;&lt;/script&gt;
-&lt;script src="js/app.js"&gt;&lt;/script&gt;
-</code></pre>
+<h3>
+<a id="thanks-to" class="anchor" href="#thanks-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thanks to...</h3>
 
-<p>
-</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/ndconline">ndconline</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+<ul>
+<li><a href="https://github.com/Leaflet/Leaflet">Leaflet</a></li>
+<li><a href="https://github.com/joker-x/Leaflet.geoCSV">Leaflet.geoCSV</a></li>
+<li><a href="https://github.com/Leaflet/Leaflet.markercluster">Leaflet.markercluster</a></li>
+<li><a href="http://twitter.github.io/bootstrap/">Twitter Boostrap</a></li>
+<li><a href="http://jquery.com/">jQuery</a></li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ndconline/csvmap">Csvmap</a> is maintained by <a href="https://github.com/ndconline">ndconline</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>
